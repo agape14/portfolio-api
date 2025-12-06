@@ -21,6 +21,7 @@ return [
         'http://127.0.0.1:3002',
         'https://delacruzdev.tech',
         'https://cms.delacruzdev.tech',
+        'https://api.delacruzdev.tech',
     ],
 
     'allowed_origins_patterns' => [],
