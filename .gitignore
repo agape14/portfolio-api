@@ -16,3 +16,9 @@ yarn-error.log
 /.idea
 /.vscode
 
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*.log
+/bootstrap/cache/*.php
