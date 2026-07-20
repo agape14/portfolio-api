@@ -2,30 +2,32 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\RewritesStorageUrls;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
     use HasFactory;
+    use RewritesStorageUrls;
 
     protected $fillable = [
         'key',
         'value',
     ];
 
-    /**
-     * Obtener un setting por su key
-     */
+    public function getValueAttribute(?string $value): ?string
+    {
+        return $this->rewriteStorageUrl($value);
+    }
+
     public static function getValue(string $key, $default = null)
     {
         $setting = self::where('key', $key)->first();
+
         return $setting ? $setting->value : $default;
     }
 
-    /**
-     * Establecer o actualizar un setting
-     */
     public static function setValue(string $key, $value): void
     {
         self::updateOrCreate(

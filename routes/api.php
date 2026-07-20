@@ -118,7 +118,7 @@ Route::post('messages', [\App\Http\Controllers\Api\MessageController::class, 'st
 
 // Public Chat Routes
 Route::post('chat/start', [\App\Http\Controllers\Api\ChatController::class, 'start']);
-Route::post('chat/send', [\App\Http\Controllers\Api\ChatController::class, 'sendMessage']);
+Route::post('chat/send', \App\Http\Controllers\Api\ChatWebhookController::class);
 Route::post('chat/messages', [\App\Http\Controllers\Api\ChatController::class, 'getMessages']);
 
 // Protected Chat Routes
